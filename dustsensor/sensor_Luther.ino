@@ -51,15 +51,13 @@ void loop(){
  
   // 0 - 3.3V mapped to 0 - 1023 integer values
   // recover voltage
-  calcVoltage = voMeasured * (5.0 / 4096.0);
+  calcVoltage = voMeasured * (3.3 / 4096.0); 
   
   // linear eqaution taken from http://www.howmuchsnow.com/arduino/airquality/
   // Chris Nafis (c) 2012
   dustDensity = 0.172 * calcVoltage - 0.0999;
-  
-  //convert the unit to mg/m^3
-  //dustDensity = dustDensity * 10;
 
+//if the measured value is negative then the dust density is close enough to 0
   if (dustDensity < 0){
     dustDensity = 0;
   }
@@ -72,17 +70,9 @@ void loop(){
  
   Serial.print(" - Dust Density (mg/m^3): ");
   Serial.println(dustDensity,3);
- //
-   matrix.print(dustDensity,3);
-  matrix.writeDisplay();
- //
-  delay(2000);
-}
 
-//void ledcAnalogWrite(uint8_t channel, uint32_t value, uint32_t valueMax = 255) {
-//  // calculate duty, 8191 from 2 ^ 13 - 1
-//  uint32_t duty = (8191 / valueMax) * min(value, valueMax);
-//
-//  // write duty to LEDC
-//  ledcWrite(channel, duty);
-//}
+  matrix.print(dustDensity,3);
+  matrix.writeDisplay();
+ 
+  delay(1000);
+}
