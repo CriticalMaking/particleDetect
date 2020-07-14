@@ -51,11 +51,20 @@ void loop(){
  
   // 0 - 3.3V mapped to 0 - 1023 integer values
   // recover voltage
-  calcVoltage = voMeasured * (3.3 / 4096.0); 
-  
+  //calcVoltage = voMeasured * (3.3 / 4096.0); 
+  calcVoltage = voMeasured * (5 / 4096.0); //use the 5v value despite 3.3v to create 5V scaled output values
+
   // linear eqaution taken from http://www.howmuchsnow.com/arduino/airquality/
   // Chris Nafis (c) 2012
-  dustDensity = 0.172 * calcVoltage - 0.0999;
+  //dustDensity = 0.172 * calcVoltage - 0.0999;
+
+//replace with calc from https://www.pocketmagic.net/sharp-gp2y1010-dust-sensor/
+
+if (calcVoltage < 0.583)  
+    dustDensity = 0;
+  else
+    dustDensity = 6 * calcVoltage / 35 - 0.1;
+
 
 //if the measured value is negative then the dust density is close enough to 0
   if (dustDensity < 0){
