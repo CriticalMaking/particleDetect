@@ -17,6 +17,9 @@ Project is created with:
 * Adafruit GFX library version: 1.8.4
 * Adafruit LED Backpack library version: 1.1.6
 
+check here for the instruction of how to install the ESP32 board in Arduino IDE on Windos OS:
+https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/
+
 Required Hardware:
 * 150 Ohms Resistor * 1
 * 220 uF Capacitor * 1
@@ -33,13 +36,7 @@ Required Hardware:
 https://github.com/Trefex/arduino-airquality/tree/master/Module_Dust-Sensor
 
 Here is the images of how to set up the electronic components on the breadboard, follow the patterns and you can easily solder the components on the protoboard. 
-(Warning: this picture looks bad, we may probably need a clearer one!)
 ![Image of integratedCircuit](https://github.com/CriticalMaking/particleDetect/blob/Luther's-version/dustsensor/images/002.jpg)
-
-Here is the images of how components are soldered on the protoboard (lack of image, please upload one if someone have it):
-
-
-
 
 2. After installed the Arduino IDE, open it, and go to "Tools -> Manage Libraries," in the Library Manager, search for all the libraries mentioned above and lick on "Install."
 
